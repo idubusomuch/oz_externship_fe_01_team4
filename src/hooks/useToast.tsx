@@ -1,16 +1,17 @@
-import { toast } from 'react-hot-toast';
-import { CustomToast, type ToastStyle, type ToastType } from '@components/toast';
+import { toast } from 'react-hot-toast'
+import { CustomToast } from '@components/toast/toast'
+import type { ToastStyle, ToastType } from '@components/toast/IconMap'
 
 type ShowToastOptions = {
-  message: string;
-  type?: ToastType;
-  style?: ToastStyle;
-  hasActionButton?: boolean;
-  actionLabel?: string;
-  onActionClick?: () => void;
-  hasCloseButton?: boolean;
-  hasIcon?: boolean;
-  duration?: number;
+  message: string
+  type?: ToastType
+  style?: ToastStyle
+  hasActionButton?: boolean
+  actionLabel?: string
+  onActionClick?: () => void
+  hasCloseButton?: boolean
+  hasIcon?: boolean
+  duration?: number
 }
 
 export const useCustomToast = () => {
@@ -25,24 +26,26 @@ export const useCustomToast = () => {
     hasIcon = true,
     duration = 4000,
   }: ShowToastOptions) => {
-    const toastId = toast.custom((t) => (
-      <CustomToast
-        id={t.id}
-        message={message}
-        type={type}
-        style={style}
-        hasActionButton={hasActionButton}
-        actionLabel={actionLabel}
-        onActionClick={onActionClick}
-        hasCloseButton={hasCloseButton}
-        hasIcon={hasIcon}
-      />
-    ), { duration });
+    const toastId = toast.custom(
+      (t) => (
+        <CustomToast
+          id={t.id}
+          message={message}
+          type={type}
+          style={style}
+          hasActionButton={hasActionButton}
+          actionLabel={actionLabel}
+          onActionClick={onActionClick}
+          hasCloseButton={hasCloseButton}
+          hasIcon={hasIcon}
+        />
+      ),
+      { duration }
+    )
 
-    return toastId;
-  };
+    return toastId
+  }
 
-  // 토스트 타입별 단축 메서드
   return {
     show: showToast,
     success: (message: string, options: Partial<ShowToastOptions> = {}) =>
@@ -55,5 +58,5 @@ export const useCustomToast = () => {
       showToast({ message, type: 'warning', ...options }),
     default: (message: string, options: Partial<ShowToastOptions> = {}) =>
       showToast({ message, type: 'default', ...options }),
-  };
-};
+  }
+}

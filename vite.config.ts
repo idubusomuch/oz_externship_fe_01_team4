@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 import svgr from 'vite-plugin-svgr'
-import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -18,7 +17,6 @@ export default defineConfig({
       '@utils': resolve(__dirname, 'src/utils'),
       '@constants': resolve(__dirname, 'src/constants'),
       '@store': resolve(__dirname, 'src/store'),
-      '@': path.resolve(__dirname, 'src')
     },
   },
   plugins: [react(), tailwindcss(), svgr()],

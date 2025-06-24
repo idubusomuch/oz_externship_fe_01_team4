@@ -9,9 +9,7 @@ import {
 } from '@constants/ToastConstant'
 import { iconMap, type ToastStyle, type ToastType } from '@constants/IconMap'
 import { closeIconMap } from '@constants/CloseIconMap'
-import { typeConfig } from '../constants/ToastTypeConfig'
-
-// --- 상수 정의 부분 전체 삭제 ---
+import { typeConfig } from '@constants/ToastTypeConfig'
 
 export type CustomToastProps = {
   id: string
@@ -24,8 +22,6 @@ export type CustomToastProps = {
   hasCloseButton?: boolean
   hasIcon?: boolean
 }
-
-// translucentBgMap 정의 부분 삭제
 
 export const CustomToast = ({
   id,

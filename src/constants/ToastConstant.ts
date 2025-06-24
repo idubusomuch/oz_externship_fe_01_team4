@@ -1,4 +1,4 @@
-import { type ToastType } from './IconMap'
+import { type ToastType } from '@constants/IconMap'
 
 // 상수를 정의하고 export 합니다.
 export const TOAST_CONSTANTS = {
